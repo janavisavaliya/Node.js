@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Reset margin and padding */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FFFDEC;
+            /* Soft cream background */
+            color: #1b5e20;
+            /* Dark green text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            /* Arrange content in a column */
+            height: 100vh;
+        }
+
+        header {
+            background-color: #FFFDEC;
+            /* Cream background for the header */
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            /* Enhanced shadow for depth */
+            border-radius: 16px;
+            /* Softer rounded corners */
+            width: 50%;
+            /* Set width for responsiveness */
+            max-width: 900px;
+            /* Limit maximum width */
+            animation: bounceIn 1.5s ease-in-out;
+            /* Bounce animation */
+            transition: box-shadow 0.3s ease-in-out;
+            /* Transition only box-shadow */
+        }
+
+        /* Header hover effect */
+        header:hover {
+            box-shadow: 0 12px 40px #f2839c;
+            /* Stronger shadow on hover */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold;
+            color: #f2839c;
+            /* Dark green for the heading text */
+            margin-bottom: 20px;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            /* Arrange navbar into rows */
+            gap: 10px;
+            /* Space between rows */
+            align-items: center;
+            /* Center align the rows */
+        }
+
+        nav .row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        nav a {
+            position: relative;
+            color: #f2839c;
+            /* Dark green for links */
+            border: 2px solid transparent;
+            /* Initial transparent border */
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 8px;
+            /* Rounded corners */
+            transition: all 0.3s ease-in-out;
+            /* Smooth transitions for all properties */
+            overflow: hidden;
+            /* Hide the pseudo-element overflow */
+        }
+
+        /* Hover effect for nav links */
+        nav a:hover {
+            background-color: #f2839c;
+            /* Dark green background */
+            color: #FFFDEC;
+            /* Change text color to cream */
+            transform: translateY(-4px);
+            /* Slight lift effect */
+            box-shadow: 0 10px 30px #f2839d8c;
+            /* Subtle shadow */
+        }
+
+        /* Underline effect for nav links */
+        nav a::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 0;
+            height: 3px;
+            background: #FFFDEC;
+            /* Cream underline */
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-50%);
+            /* Center the underline */
+        }
+
+        nav a:hover::before {
+            width: 100%;
+            /* Underline expands on hover */
+        }
+
+        /* Keyframes for bounce effect */
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.9) translateY(-30px);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.05) translateY(10px);
+                opacity: 0.75;
+            }
+
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Entrance animation for nav links */
+        nav a {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Keyframes for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ABOUT PAGE
+            
+        </h1>
+        <nav>
+            <div class="row">
+                <a href="/">Home</a>
+                <a href="/about">About</a>
+                <a href="/blog">Blog</a>
+                <a href="/cart">Cart</a>
+                <a href="/login">Login</a>
+            </div>
+            <div class="row">
+                <a href="/account">Account</a>
+                <a href="/order">Order</a>
+                <a href="/policy">Policy</a>
+                <a href="/register">Register</a>
+                <a href="/shopping">Shopping</a>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
