@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #faf3e049;
+            color: #333333; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 1.5s ease-out; 
+        }
+
+        h1 {
+            color: #4E4E4E; 
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 32px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeInTitle 1.5s ease-out forwards 0.5s;
+        }
+
+        .form-container {
+            width: 400px;
+            background: #FFFFFF; 
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            animation: slideUp 1s ease-out forwards 0.5s;
+            transform: translateY(50px); 
+        }
+
+       
+        label {
+            font-size: 16px;
+            color: #5A5A5A;
+            margin-bottom: 8px;
+            display: block;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="datetime-local"] {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 2px solid #DDDDDD;
+            border-radius: 8px;
+            background-color: #F9F9F9;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-sizing: border-box; 
+            color: #757575;
+        }
+
+        input[type="text"]:focus,
+        input[type="datetime-local"]:focus {
+            outline: none;
+            border-color: #ac7685; 
+            box-shadow: 0 0 10px rgba(200, 161, 101, 0.5);
+            transform: scale(1.03); 
+            color: #757575;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 14px;
+            background-color: #ac7685;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            transform: translateY(10px);
+            opacity: 0;
+            animation: fadeInButton 0.8s ease-out forwards 1.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #000; 
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 12px rgba(166, 124, 78, 0.3);
+            transition: 1s;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #000; 
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInLink 1s ease-out forwards 1.5s;
+        }
+
+        a:hover {
+            color: #ac7685; 
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInTitle {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInButton {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLink {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Add User</h1>
+        <form action="/adduser" method="post">
+            <label>Task</label>
+            <input type="text" name="usertask" placeholder="Enter Your Task">
+            
+            <label>status</label>
+            <input type="text" name="userstatus" placeholder="Enter Your Status">
+
+            <label>Deadline</label>
+            <input type="datetime-local" name="userdeadline" placeholder="Enter Your Deadline">
+
+            <input type="submit" value="Add User">
+        </form>
+        <a href="/">View Users</a>
+    </div>
+</body>
+</html>
