@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        header {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .banner {
+            background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/fb5cb900-0cb6-4728-beb5-579b9af98fdd/web/IN-en-20250127-TRIFECTA-perspective_cf66f5a3-d894-4185-9106-5f45502fc387_large.jpg');
+            /* position: absolute; */
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            top: 0;
+            padding: 150px 0;
+            background-color: rgba(0, 0, 0, 0.506);
+            background-blend-mode: darken;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background-color: #2d2d2d;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #2d2d2d;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            background-color: #2d2d2d;
+            color: #fff !important;
+            font-size: 18px;
+            line-height: 1.6;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.open {
+            max-height: 200px;
+            /* Adjust for longer answers */
+            padding: 15px 20px;
+        }
+
+        .arrow {
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .arrow.open {
+            transform: rotate(45deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .faq-question {
+                font-size: 14px;
+                padding: 15px;
+            }
+
+            .faq-answer {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .faq-container {
+                max-width: 90%;
+            }
+        }
+
+        .footer {
+            background-color: #2d2d2d56;
+            padding-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="d-flex align-items-center py-3">
+                <div class="col-2">
+                    <div class="header-logo">
+                        <h2 style="color: red;">NETFLIX</h2>
+                    </div>
+                </div>
+                <div class="col-10 d-flex justify-content-end">
+                    <div class="menu">
+                        <ul style="list-style: none;" class="d-flex m-0">
+                            <li class="px-2">
+                                <a href="#">
+                                    <select name="translate" style="padding: 4px 10px; border-radius: 5px;">
+                                        <option value=" English">English</option>
+                                        <option value="Hindi">Hindi</option>
+                                    </select>
+                                </a>
+                            </li>
+                            <li class="ps-2">
+                                <a href="#">
+                                    <button
+                                        style="background-color: red; color: white; border: red; padding: 4px 10px; border-radius: 5px;"><i
+                                            class="fa-solid fa-user"></i></button>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                <div class="col-5" style="background-color: rgba(0, 0, 0, 0.77);padding: 20px 40px;border-radius: 5px;">
+                    <div class="banner-content text-light">
+                        <form action="/crud/insertrecord" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Movie Name</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" name="name">
+                            </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label text-light">Description</label>
+                        <input type="text" name="email" class="form-control" id="exampleInputPassword1">
+                        <div id="emailHelp" class="form-text text-light">Share your experience with us.
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label for="exampleInputPassword1" class="form-label text-light">Image</label>
+                            <input type="file" name="avatar" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn text-light"
+                            style="background-color: red;display: block; margin: 0 auto;">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 100px;">
+        <div class="container">
+            <h2 class="text-light">View Your Favourite Movies</h2>
+            <div class="d-flex">
+                <% record.map((val,i)=>{ %>
+                    <div class="col-3">
+                        <div class="card" style="width: 18rem; background-color: #2d2d2d56;">
+                            <img src="<%= val?.image %>" style="height: 250px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title text-center text-light">
+                                    <%= val?.name %>
+                                </h5>
+                                <p class="card-text text-center text-light">
+                                    <%= val?.email %>
+                                </p>
+                                <button class="btn text-light border-0"
+                                    style="background-color: red;display: block; margin: 0 auto;"><a
+                                        href="/crud/deleterecord?id=<%= val?.id %>"
+                                        class="text-decoration-none text-light">Delete</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <%}) %>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 100px;">
+        <div class="container">
+            <div class="faq-container">
+                <h2 class="text-light mb-3">Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p class="text-light m-0">What is Netflix?</p>
+                        <span class="arrow text-light">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-light">Netflix is a streaming service that offers a wide variety of award-winning
+                            TV shows, movies, anime, documentaries and more – on thousands of internet-connected
+                            devices.</p>
+                        <p class="text-light">You can watch as much as you want, whenever you want, without a single ad
+                            – all for one low monthly price. There's always something new to discover, and new TV shows
+                            and movies are added every week!</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p class="text-light m-0">How much does Netflix cost?</p>
+                        <span class="arrow text-light">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-light">Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming
+                            device, all for one fixed monthly fee. Plans range from ₹149 to ₹649 a month. No extra
+                            costs, no contracts.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p class="text-light m-0">Where can i watch?</p>
+                        <span class="arrow text-light">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-light">Watch anywhere, anytime. Sign in with your Netflix account to watch
+                            instantly on the web at netflix.com from your personal computer or on any internet-connected
+                            device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming
+                            media players and game consoles.</p>
+                        <p class="text-light">You can also download your favourite shows with the iOS or Android app.
+                            Use downloads to watch while you're on the go and without an internet connection. Take
+                            Netflix with you anywhere.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p class="text-light m-0">How do i cancel?</p>
+                        <span class="arrow text-light">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-light">Netflix is flexible. There are no annoying contracts and no commitments.
+                            You can easily cancel your account online in two clicks. There are no cancellation fees –
+                            start or stop your account anytime.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p class="text-light m-0">What can i watch on Netflix?</p>
+                        <span class="arrow text-light">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-light">Netflix has an extensive library of feature films, documentaries, TV
+                            shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime
+                            you want.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <p class="text-light m-0">Is Netflix good for kids?</p>
+                        <span class="arrow text-light">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-light">The Netflix Kids experience is included in your membership to give parents
+                            control while kids enjoy family-friendly TV shows and films in their own space.</p>
+                        <p class="text-light">Kids profiles come with PIN-protected parental controls that let you
+                            restrict the maturity rating of content kids can watch and block specific titles you don’t
+                            want kids to see.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 100px;" class="footer">
+        <div class="container">
+            <footer>
+                <div class="footer-img-slider d-flex justify-content-between justify-content-center py-3">
+                    <div class="col-2">
+                        <img src="https://m.media-amazon.com/images/M/MV5BZjI1ZjM3NjUtYTc1Ni00ODJmLWI5YjQtMWZiZTAyNTFiZGY1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+                            alt="" width="200px" height="200px" style="object-fit: cover;">
+                    </div>
+                    <div class="col-2">
+                        <img src="https://img.indiaforums.com/movie/350x525/7/306-sky-force.jpg?c=6mN077" alt=""
+                            width="200px" height="200px" style="object-fit: cover;">
+                    </div>
+                    <div class="col-2">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/9/96/Yashoda_%28film%29_poster.jpeg" alt=""
+                            width="200px" height="200px" style="object-fit: cover;">
+                    </div>
+                    <div class="col-2">
+                        <img src="https://static.toiimg.com/photo/113587323.cms" alt="" width="200px" height="200px"
+                            style="object-fit: cover;">
+                    </div>
+                    <div class="col-2">
+                        <img src="https://preview.redd.it/official-poster-of-pushpa-2-the-rule-v0-3v9i0uxybisa1.png?auto=webp&s=2b83c12c0cc53d9772901124cca4c0b769b481f6"
+                            alt="" width="200px" height="200px" style="object-fit: cover;">
+                    </div>
+                    <div class="col-2">
+                        <img src="https://m.media-amazon.com/images/I/71iYQyC96sL._AC_UF894,1000_QL80_.jpg" alt=""
+                            width="200px" height="200px" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="footer-social pb-3">
+                    <div class="d-flex justify-content-center">
+                        <div class="p-2 insta">
+                            <a href="https://www.instagram.com/netflix/#" target="_blank"><i
+                                    class="fa-brands fa-instagram text-light" style="font-size: 24px;"></i></a>
+                        </div>
+                        <div class="p-2 facebook">
+                            <a href="https://www.facebook.com/netflix/" target="_blank"><i
+                                    class="fa-brands fa-facebook text-light" style="font-size: 24px;"></i></a>
+                        </div>
+                        <div class="p-2 twit">
+                            <a href="https://x.com/NetflixIndia?mx=2" target="_blank"><i
+                                    class="fa-brands fa-twitter text-light" style="font-size: 24px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-end d-flex align-items-center py-3" style="border-top: 2px solid #2d2d2d;">
+                    <div class="col-2">
+                        <h2 style="color: red;">NETFLIX</h2>
+                    </div>
+                    <div class="col-10">
+                        <div class="menu">
+                            <ul class="d-flex align-items-center justify-content-end m-0" style="list-style: none;">
+                                <li class="px-2">
+                                    <a href="/" style="text-decoration: none; color: white; font-size: 18px;">Home</a>
+                                </li>
+                                <li class="px-2">
+                                    <a href="#" style="text-decoration: none; color: white; font-size: 18px;">Movies</a>
+                                </li>
+                                <li class="px-2">
+                                    <a href="#" style="text-decoration: none; color: white; font-size: 18px;">Events</a>
+                                </li>
+                                <li class="px-2">
+                                    <a href="#" style="text-decoration: none; color: white; font-size: 18px;">Pages</a>
+                                </li>
+                                <li class="px-2">
+                                    <a href="#" style="text-decoration: none; color: white; font-size: 18px;">News</a>
+                                </li>
+                                <li class="px-2">
+                                    <a href="#"
+                                        style="text-decoration: none; color: white; font-size: 18px;">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- faq start -->
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const arrow = item.querySelector('.arrow');
+
+            question.addEventListener('click', () => {
+                const isOpen = answer.classList.contains('open');
+
+                // Close all open answers
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.arrow').forEach(a => a.classList.remove('open'));
+
+                // Toggle current item
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    arrow.classList.add('open');
+                }
+            });
+        });
+    </script>
+    <!-- faq end -->
+</body>
+
+</html>
