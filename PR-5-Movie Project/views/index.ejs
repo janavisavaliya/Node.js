@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Netflix India – Watch TV Shows Online, Watch Movies Online</title>
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/019/956/195/non_2x/netflix-transparent-netflix-free-free-png.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -28,7 +30,7 @@
             width: 100%;
             top: 0;
             padding: 200px 0;
-            background-color: rgba(0, 0, 0, 0.506);
+            background-color: rgba(0, 0, 0, 0.642);
             background-blend-mode: darken;
         }
 
@@ -175,7 +177,9 @@
                 <div class="d-flex align-items-center py-3">
                     <div class="col-2">
                         <div class="header-logo">
-                            <h2 style="color: red;">NETFLIX</h2>
+                            <img src="https://help.nflxext.com/helpcenter/OneTrust/oneTrust_production/consent/87b6a5c0-0104-4e96-a291-092c11350111/01938dc4-59b3-7bbc-b635-c4131030e85f/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
+                                alt="" width="200px">
+                            <!-- <h2 style="color: red;">NETFLIX</h2> -->
                         </div>
                     </div>
                     <div class="col-10 d-flex justify-content-end">
@@ -456,6 +460,35 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- faq start -->
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            const arrow = item.querySelector('.arrow');
+
+            question.addEventListener('click', () => {
+                const isOpen = answer.classList.contains('open');
+
+                // Close all open answers
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+                document.querySelectorAll('.arrow').forEach(a => a.classList.remove('open'));
+
+                // Toggle current item
+                if (!isOpen) {
+                    answer.classList.add('open');
+                    arrow.classList.add('open');
+                }
+            });
+        });
+    </script>
+    <!-- faq end -->
 </body>
 
 </html>
