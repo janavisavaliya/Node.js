@@ -148,8 +148,18 @@
             <i class="fas fa-headset"></i> ExSubCategory
         </button>
         <div class="collapse" id="supportCollapse">
-            <a href="#" class="ms-3"><i class="fas fa-envelope"></i> Add ExSubCategory</a>
+            <a href="/exsubcategory/addexsubcategorypage" class="ms-3"><i class="fas fa-envelope"></i> Add
+                ExSubCategory</a>
             <a href="/exsubcategory" class="ms-3"><i class="fas fa-info-circle"></i> View ExSubCategory</a>
+        </div>
+        <button class="btn btn-toggle d-block w-100 text-start text-dark" data-bs-toggle="collapse"
+            data-bs-target="#productCollapse" aria-expanded="false">
+            <i class="fas fa-headset"></i> Product
+        </button>
+        <div class="collapse" id="productCollapse">
+            <a href="/product/addproduct" class="ms-3"><i class="fas fa-envelope"></i> Add
+                Product</a>
+            <a href="/product" class="ms-3"><i class="fas fa-info-circle"></i> View Product</a>
         </div>
 
         <a href="/logout" class="text-dark"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -160,17 +170,16 @@
             </h1>
             <button type="button" class="btn btn-light">Search</button>
         </div>
-
-        <div class="container">
-            <div class="row justify-content-center" style="margin-top: 60px;">
+        <div class="container" style="margin-top: 60px;">
+            <div class="row justify-content-center">
                 <div class="col-md-6 form-container">
                     <% if(locals.message?.success) { %>
                         <div class="alert alert-success" id="success-message">
-                            <%= locals.message?.success %>
+                            ="/ <%= locals.message?.success %>
                         </div>
                         <% } %>
-                            <h2 class="form-title">Edit SubCategory</h2>
-                            <form method="post" action="/exsubcategory/insertexsubcategory">
+                            <h2 class="form-title">Add Product</h2>
+                            <form method="post" action="/product/updateProduct">
                                 <input type="hidden" name="editid" value="<%= single?.id %>">
                                 <div class="form-group mb-3 d-flex align-items-center">
                                     <label for="fname"
@@ -191,7 +200,7 @@
                                 </div>
                                 <div class="form-group mb-3 d-flex align-items-center">
                                     <label for="fname"
-                                        class="col-sm-3 text-right control-label col-form-label">Category</label>
+                                        class="col-sm-3 text-right control-label col-form-label">SubCategory</label>
                                     <div class="col-sm-9">
                                         <select name="subcategory" class="form-control">
                                             <option>---select subcategory---</option>
@@ -207,20 +216,50 @@
                                 </div>
                                 <div class="form-group mb-3 d-flex align-items-center">
                                     <label for="fname"
-                                        class="col-sm-3 text-right control-label col-form-label">ExSubcategory</label>
+                                        class="col-sm-3 text-right control-label col-form-label">ExSubCategory</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="exsubcategory" value="<%= single?.exsubcategory %>"
-                                            class="form-control" placeholder="Exsubcategory">
+                                        <select name="exsubcategory" class="form-control">
+                                            <option>---select exsubcategory---</option>
+                                            <% exsubcategory.map((val)=>{ %>
+                                                <option <%
+                                                    if(val?.exsubcategory==single?.exsubcategoryId?.exsubcategory) { %>
+                                                    selected <% } %>
+                                                        value="<%= val?.id %>">
+                                                            <%= val?.exsubcategory %>
+                                                </option>
+                                                <% }) %>
+                                        </select>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-block btn-custom"
-                                    style="background-color: #4261a5;color: #fff;">Update ExSubCategory</button>
-                                <a href="/exsubcategory" class="btn btn-secondary btn-block btn-custom my-2">Back to
-                                    ExSubCategories</a>
+
+                                <div class="form-group row mb-3">
+                                    <label for="product"
+                                        class="col-sm-3 text-right control-label col-form-label">Product Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="product" value="<%= single?.product %>"
+                                            class="form-control" placeholder="Product Name">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="product" class="col-sm-3 text-right control-label col-form-label">New
+                                        Image</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" name="productImage" accept="image/*" class="form-control">
+                                        <img src="<%= single?.productImage%>" width="100px" alt="">
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-block btn-custom mt-3"
+                                    style="background-color: #4261a5;color: #fff;">Update Product</button>
+                                <a href="/product" class="btn btn-secondary btn-block btn-custom my-2">Back to
+                                    Products</a>
                             </form>
                 </div>
             </div>
         </div>
+
+
     </main>
 
     <script>

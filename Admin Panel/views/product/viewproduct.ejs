@@ -187,6 +187,7 @@
                                         <th scope="col">Subcategory</th>
                                         <th scope="col">Ex_Subcategory</th>
                                         <th scope="col">Product</th>
+                                        <th scope="col">ProductImage</th>
                                         <th scope="col">Action</th>
                                         <th scope="col">Status</th>
                                     </tr>
@@ -208,6 +209,9 @@
                                             </td>
                                             <td>
                                                 <%= val?.product %>
+                                            </td>
+                                            <td>
+                                                <img src="<%= val?.productImage%>" alt="" width="100px">
                                             </td>
                                             <td>
                                                 <a href="/product/deleteproduct?id=<%= val?._id %>"

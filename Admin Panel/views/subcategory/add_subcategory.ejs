@@ -148,8 +148,18 @@
             <i class="fas fa-headset"></i> ExSubCategory
         </button>
         <div class="collapse" id="supportCollapse">
-            <a href="#" class="ms-3"><i class="fas fa-envelope"></i> Add ExSubCategory</a>
-            <a href="#" class="ms-3"><i class="fas fa-info-circle"></i> View ExSubCategory</a>
+            <a href="/exsubcategory/addexsubcategorypage" class="ms-3"><i class="fas fa-envelope"></i> Add
+                ExSubCategory</a>
+            <a href="/exsubcategory" class="ms-3"><i class="fas fa-info-circle"></i> View ExSubCategory</a>
+        </div>
+        <button class="btn btn-toggle d-block w-100 text-start text-dark" data-bs-toggle="collapse"
+            data-bs-target="#productCollapse" aria-expanded="false">
+            <i class="fas fa-headset"></i> Product
+        </button>
+        <div class="collapse" id="productCollapse">
+            <a href="/product/addproduct" class="ms-3"><i class="fas fa-envelope"></i> Add
+                Product</a>
+            <a href="/product" class="ms-3"><i class="fas fa-info-circle"></i> View Product</a>
         </div>
 
         <a href="/logout" class="text-dark"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -168,7 +178,7 @@
                             <%= locals.message?.success %>
                         </div>
                         <% } %>
-                            <h2 class="form-title">Add New Category</h2>
+                            <h2 class="form-title">Add Subcategory</h2>
                             <form method="post" action="/subcategory/insertsubcategory">
                                 <div class=" mb-3 p-0 w-100">
                                     <select name="category" class="form-control">
@@ -191,7 +201,7 @@
 
 
 
-                                <button type="submit" class="btn btn-custom btn-block mb-2 mt-3 mt-2 py-2"
+                                <button type="submit" class="btn btn-custom btn-block mb-2 mt-3 mt-2 py-2 text-light"
                                     style="background-color: #4261a5;">Add SubCategory</button>
                                 <a href="/subcategory" class="btn btn-secondary btn-custom btn-block mb-2 py-2">Back to
                                     SubCategories</a>

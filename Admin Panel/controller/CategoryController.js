@@ -50,7 +50,7 @@ const insertCategory = async (req, res) => {
 
     }
 }
-const deleteCategegory = async (req, res) => {
+const deleteCategory = async (req, res) => {
     try {
         let id = req.query?.id;
         await CategoryModel.findByIdAndDelete(id);
@@ -138,5 +138,5 @@ const changeStatus = async (req, res) => {
     }
 }
 module.exports = {
-    addCategoryPage, viewCategoryPage, insertCategory, changeStatus, deleteCategegory, editCategory, updateCategory
+    addCategoryPage, viewCategoryPage, insertCategory, changeStatus, deleteCategory, editCategory, updateCategory
 }

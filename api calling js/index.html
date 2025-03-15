@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div align="center">
+        <h1>API Calling</h1>
+        <table border="1" cellpadding="4" cellspacing="2">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>age</td>
+                    <td>phone</td>
+                    <td>city</td>
+                </tr>
+            </thead>
+            <tbody id="userdata"></tbody>
+        </table>
+    </div>
+
+    <script type="text/javascript">
+        const getUser = async () => {
+            try {
+                let res = await fetch(`http://localhost:9000/users`, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                let data = await res.json();
+                let users = data.users;
+                if (data.success) {
+                    let tbl = "";
+                    users.forEach((val, index) => {
+                        tbl += `
+                                        <tr>
+                                            <td>${val.id}</td> 
+                                            <td>${val.name}</td>
+                                            <td>${val.age}</td> 
+                                            <td>${val.phone}</td>
+                                            <td>${val.city}</td>
+                                        </tr>
+                                       `
+                    })
+                    document.getElementById('userdata').innerHTML = tbl;
+                }
+            } catch (err) {
+                console.log(err);
+                return false;
+            }
+        }
+        getUser();
+    </script>
+</body>
+
+</html>

@@ -50,7 +50,7 @@ const insertSubcategory = async (req, res) => {
         return false;
     }
 }
-const deleteSubcategegory = async (req, res) => {
+const deleteSubcategory = async (req, res) => {
     try {
         let id = req.query?.id;
         await SubCategoryModel.findByIdAndDelete(id);
@@ -99,5 +99,5 @@ const changeStatus = async (req, res) => {
     }
 }
 module.exports = {
-    addsubCategorypage, viewsubCategorypage, insertSubcategory, editSubcategory, changeStatus, deleteSubcategegory
+    addsubCategorypage, viewsubCategorypage, insertSubcategory, editSubcategory, changeStatus, deleteSubcategory
 }

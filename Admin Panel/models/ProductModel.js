@@ -1,27 +1,35 @@
 const mongoose = require('mongoose');
 
-const ProductSchema = mongoose.Schema({
+const productSchema = new mongoose.Schema({
     categoryId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'category'
+        ref: 'category',
+        required: true // Check if this field is required
     },
     subcategoryId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'subcategory'
+        ref: 'subcategory',
+        required: true // Check if this field is required
     },
     exsubcategoryId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'exsubcategory'
+        ref: 'exsubcategory',
+        required: true // Check if this field is required
     },
     product: {
+        type: String,
+        required: true // Check if product name is required
+    },
+    productImage: {
         type: String,
         required: true
     },
     status: {
         type: String,
-        default: 'active'
+        enum: ['active', 'inactive'],
+        default: 'active' // Ensure this is correct
     }
-})
+});
 
-const product = mongoose.model('product', ProductSchema);
-module.exports = product;
+const Product = mongoose.model('Product', productSchema);
+module.exports = Product;

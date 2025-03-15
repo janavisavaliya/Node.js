@@ -46,6 +46,16 @@ app.use('/', (req, res, next) => {
 })
 //flash message end
 
+const multer = require('multer');
+
+//file upload start
+const fs = require('fs');
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+//file upload end
+
+
 app.use('/', require('./routes/indexRoute'));
 
 app.listen(port, (err) => {

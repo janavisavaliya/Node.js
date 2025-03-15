@@ -67,6 +67,21 @@ const insertExsubcategory = async (req, res) => {
         return false;
     }
 }
+const deleteExsubategory = async (req, res) => {
+    try {
+        let id = req.query?.id;
+
+        // Delete only from ExSubcategoryModel
+        await ExSubcategoryModel.findByIdAndDelete(id);
+
+        req.flash('success', 'Exsubcategory successfully deleted');
+        return res.redirect('/exsubcategory');
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send("Error deleting Exsubcategory");
+    }
+};
+
 const editExsubcategory = async (req, res) => {
     try {
         let id = req.query?.id
@@ -84,6 +99,28 @@ const editExsubcategory = async (req, res) => {
         return false;
     }
 }
+const changeStatus = async (req, res) => {
+    try {
+        const { id, status } = req.query;
+
+        // Validate ID exists
+        const exsubcategory = await ExSubcategoryModel.findById(id);
+        if (!exsubcategory) {
+            req.flash("error", "Exsubcategory not found");
+            return res.redirect('/exsubcategory');
+        }
+
+        // Update status
+        await ExSubcategoryModel.findByIdAndUpdate(id, { status });
+
+        req.flash("success", "Exsubcategory status successfully updated");
+        return res.redirect('/exsubcategory');
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send("Error updating Exsubcategory status");
+    }
+};
+
 module.exports = {
-    addexsubcategorypage, ajaxCategorywiseRecord, insertExsubcategory, viewExsubcategorypage, editExsubcategory
+    addexsubcategorypage, ajaxCategorywiseRecord, insertExsubcategory, viewExsubcategorypage, editExsubcategory, deleteExsubategory, changeStatus
 }
